@@ -1,0 +1,21 @@
+.SideBar
+  .LeftHeader
+    .LeftHeader__list
+      %h3.LeftHeader__userName
+        = current_user.name
+      %ul.LeftHeader__iconList
+        %li.LeftHeader__leftIcon
+          = link_to '/groups/new' do
+            = icon('fas', 'edit')
+        %li.LeftHeader__rightIcon
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog')
+  .GroupList
+    - current_user.groups.each do |group|
+      .GroupList__group
+        = link_to group_messages_path(group) do
+          .GroupList__group-name 
+            = group.name
+          .GroupList__group-message
+            = group.show_last_message
+
