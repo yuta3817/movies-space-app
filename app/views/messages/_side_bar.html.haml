@@ -1,21 +1,22 @@
-.SideBar
-  .LeftHeader
-    .LeftHeader__list
-      %h3.LeftHeader__userName
+.Side_Menu
+  .SideHeader
+    <a href="/">
+    <img src="https://i.gyazo.com/07d347811aeda25880cef85a2857eccc.png" alt="Image from Gyazo" class="SideHeader__btn"/></a>
+    .SideHeader__list
+      %h3.SideHeader__userName
         = current_user.name
-      %ul.LeftHeader__iconList
-        %li.LeftHeader__leftIcon
+      %ul.SideHeader__iconlist
+        %li.SideHeader__leftIcon
           = link_to '/groups/new' do
             = icon('fas', 'edit')
-        %li.LeftHeader__rightIcon
+        %li.SideHeader__rightIcon
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog')
-  .GroupList
+  .TitleList
     - current_user.groups.each do |group|
-      .GroupList__group
+      .TitleList__group
         = link_to group_messages_path(group) do
-          .GroupList__group-name 
+          .TitleList__group-name
             = group.name
-          .GroupList__group-message
+          .TitleList__group-message
             = group.show_last_message
-
