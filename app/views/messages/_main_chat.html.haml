@@ -1,0 +1,17 @@
+.Main
+  .MainHeader
+    .MainHeader__title
+      .MainHeader__title-name
+        = @group.name
+      %ul.MainHeader__member-list
+        %li.MainHeader__member
+          Member :
+    = link_to edit_group_path(@group), class: "MainHeader__edit-button" do
+      編集
+  .MessageField
+    = render @messages
+  .Footer
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form
+        = f.text_area :content, class: 'Form__content', placeholder: 'コメントを入力'
+      = f.submit '投稿', class: 'Form__submit'
