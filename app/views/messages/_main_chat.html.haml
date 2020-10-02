@@ -6,6 +6,8 @@
       %ul.MainHeader__member-list
         %li.MainHeader__member
           Member :
+          - @group.users.each do |user|
+            = user.name
     = link_to edit_group_path(@group), class: "MainHeader__edit-button" do
       編集
   .MessageField
