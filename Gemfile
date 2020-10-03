@@ -59,5 +59,6 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
-source "https://rubygems.org"
-ruby "2.5.1"
+group :production do
+  gem 'unicorn', '5.4.1'
+end
